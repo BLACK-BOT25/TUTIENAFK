@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10272a"/>
+      <stop offset="0.55" stop-color="#18363a"/>
+      <stop offset="1" stop-color="#091416"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#244f4d"/>
+      <stop offset="1" stop-color="#0b181a"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="14"/></filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="1240" cy="190" r="82" fill="#dce9d1" opacity=".14"/>
+  <path d="M0 645 210 410 345 542 570 252 790 548 1025 328 1260 532 1415 382 1600 566 1600 1000 0 1000Z" fill="#19383a" opacity=".72"/>
+  <path d="M0 708 285 468 486 650 725 386 945 652 1202 438 1428 616 1600 530 1600 1000 0 1000Z" fill="url(#mountain)"/>
+  <path d="M0 784 240 604 425 714 675 514 905 735 1160 575 1368 708 1600 610 1600 1000 0 1000Z" fill="#0b1b1c"/>
+  <g fill="none" stroke="#d8e8df" stroke-width="44" opacity=".07" filter="url(#blur)">
+    <path d="M-80 530C210 450 290 610 540 540S930 390 1120 500s360 10 560-62"/>
+    <path d="M-120 735C100 650 320 780 520 710s460-25 650 35 315-26 510-62"/>
+  </g>
+</svg>
