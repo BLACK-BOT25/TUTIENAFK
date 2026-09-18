@@ -24,3 +24,193 @@ button{font:inherit;color:inherit}
 .overlay{position:absolute;z-index:20;inset:0;background:#020812cc;backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:12px}.overlay.show{display:flex}.window{width:100%;max-height:94%;overflow:auto;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,#0d1b2df7,#07111ef7);box-shadow:0 24px 60px #000c;padding:14px}.head{display:flex;justify-content:space-between;align-items:start;gap:10px;margin-bottom:10px}.head h2{margin:0;color:#ffe1a2}.head p{margin:3px 0 0;font-size:11px;opacity:.75}.close,.btn{border:0;border-radius:12px;padding:9px 11px;font-weight:800;background:linear-gradient(180deg,#b78b40,#6e4c18)}.close{background:#ffffff12}.card{border:1px solid #ffffff16;border-radius:15px;background:#ffffff08;padding:11px;margin-top:8px}.card h3{margin:0 0 6px;color:#ffe7b5;font-size:15px}.card p{font-size:12px;line-height:1.45;margin:0 0 9px}.row{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid #ffffff12;font-size:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.red{background:linear-gradient(#a94545,#5e1717)}.blue{background:linear-gradient(#426e9f,#203b5c)}.green{background:linear-gradient(#4d9a73,#244c39)}.purple{background:linear-gradient(#795fc8,#3a286c)}
 .enemy{display:flex;gap:10px;align-items:center}.enemyFace{width:62px;height:62px;border-radius:16px;display:grid;place-items:center;font-size:34px;background:#ffffff0d;border:1px solid #ffffff18}.hpbar{height:9px;border-radius:99px;background:#ffffff12;overflow:hidden;margin-top:6px}.hpbar i{display:block;height:100%;background:linear-gradient(90deg,#ff7373,#ffd27a)}
 @media(max-height:700px){.side{top:145px;gap:8px}.side button{height:68px}.sprite{width:52px;height:52px}.cult-box{bottom:294px}.fast{bottom:277px}.main-actions{bottom:170px}.act{height:82px}.stats{bottom:114px}.bottom{height:100px}}
+
+
+/* === MOBILE LAYOUT HOTFIX: keep every HUD zone separated on narrow phones === */
+@media (max-width: 480px) {
+  #app { width:100vw; height:100dvh; }
+
+  .profile{
+    left:6px;
+    top:max(6px,env(safe-area-inset-top));
+    width:47%;
+    max-width:190px;
+    height:72px;
+    gap:6px;
+    padding:5px 6px;
+    border-radius:14px;
+  }
+  .avatar{width:54px;height:54px;flex:0 0 54px}
+  .ptext{min-width:0;width:calc(100% - 60px);overflow:hidden}
+  .ptext>b{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ptext>span{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mini{height:17px;margin-top:2px}
+  .mini em{font-size:9px}
+
+  .resources{
+    top:max(6px,env(safe-area-inset-top));
+    left:48%;
+    right:6px;
+    width:auto;
+    gap:3px;
+  }
+  .res{
+    min-width:0;
+    height:35px;
+    border-radius:11px;
+    padding:0 4px;
+    gap:2px;
+    overflow:hidden;
+  }
+  .res span{font-size:15px}
+  .res b{font-size:12px;min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .res i{font-size:15px;padding:0}
+
+  .quick{
+    top:77px;
+    right:6px;
+    gap:5px;
+  }
+  .quick button{
+    width:46px;
+    height:49px;
+    border-radius:12px;
+    padding:3px;
+  }
+  .quick span{font-size:20px}
+  .quick small{font-size:8px}
+
+  .side{
+    top:142px;
+    width:62px;
+    gap:3px;
+  }
+  .side.left{left:3px}
+  .side.right{right:3px}
+  .side button{
+    height:60px;
+    width:62px;
+    justify-content:flex-start;
+  }
+  .sprite{
+    width:43px;
+    height:43px;
+    flex:0 0 43px;
+    border-width:1.5px;
+  }
+  .side b{
+    width:66px;
+    margin-top:1px;
+    font-size:9px;
+    line-height:1.05;
+    white-space:nowrap;
+  }
+
+  .cult-box{
+    width:58%;
+    bottom:275px;
+  }
+  .quote{
+    font-size:11px;
+    line-height:1.2;
+  }
+  .bar{
+    height:10px;
+    margin:5px 0 2px;
+  }
+  .cult-box>b{font-size:12px}
+
+  .fast{
+    right:8px;
+    bottom:258px;
+    padding:7px 8px;
+    font-size:10px;
+    border-radius:10px;
+  }
+
+  .main-actions{
+    left:6px;
+    right:6px;
+    bottom:164px;
+    gap:5px;
+  }
+  .act{
+    height:86px;
+    border-radius:14px;
+    padding:7px 3px;
+  }
+  .act b{font-size:13px}
+  .act small{font-size:8px;line-height:1.15}
+
+  .stats{
+    left:6px;
+    right:6px;
+    bottom:108px;
+    height:50px;
+    gap:2px;
+    padding:5px 4px;
+  }
+  .stats div{column-gap:2px}
+  .stats span{font-size:16px}
+  .stats small{font-size:7px}
+  .stats b{font-size:9px}
+
+  .bottom{
+    left:6px;
+    right:6px;
+    bottom:max(6px,env(safe-area-inset-bottom));
+    height:96px;
+    gap:5px;
+  }
+  .log{padding:7px;font-size:9px;line-height:1.32}
+  .location b{font-size:10px;left:6px;right:20px;bottom:10px}
+  .location span{font-size:24px;right:5px;bottom:7px}
+}
+
+@media (max-width: 380px) {
+  .profile{width:46%;height:68px}
+  .avatar{width:50px;height:50px;flex-basis:50px}
+  .ptext{width:calc(100% - 56px)}
+  .ptext>b{font-size:14px}
+  .resources{left:47%}
+  .res span{font-size:14px}
+  .res b{font-size:11px}
+  .quick{top:73px}
+  .quick button{width:43px;height:46px}
+  .side{top:132px;width:58px;gap:2px}
+  .side button{height:56px;width:58px}
+  .sprite{width:40px;height:40px;flex-basis:40px}
+  .side b{font-size:8px;width:62px}
+  .cult-box{bottom:264px}
+  .fast{bottom:248px}
+  .main-actions{bottom:157px}
+  .act{height:82px}
+  .stats{bottom:103px;height:48px}
+  .bottom{height:91px}
+}
+
+@media (max-height: 700px) and (max-width: 480px) {
+  .profile{height:64px}
+  .avatar{width:48px;height:48px;flex-basis:48px}
+  .ptext{width:calc(100% - 54px)}
+  .resources .res{height:32px}
+  .quick{top:68px}
+  .quick button{width:41px;height:43px}
+  .quick span{font-size:18px}
+  .side{top:116px;gap:1px}
+  .side button{height:51px}
+  .sprite{width:37px;height:37px;flex-basis:37px}
+  .side b{font-size:8px}
+  .cult-box{bottom:238px;width:56%}
+  .quote{font-size:10px}
+  .fast{bottom:226px;font-size:9px;padding:6px 7px}
+  .main-actions{bottom:145px}
+  .act{height:75px}
+  .act b{font-size:12px}
+  .act small{font-size:7px}
+  .stats{bottom:96px;height:44px}
+  .stats span{font-size:14px}
+  .stats small{font-size:6px}
+  .stats b{font-size:8px}
+  .bottom{height:86px}
+}
