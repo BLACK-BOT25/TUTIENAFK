@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1517" />
+  <title>Tu Tiên: Vấn Đạo</title>
+  <link rel="icon" href="./public/img/sect-seal.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <div class="mist mist-a"></div>
+  <div class="mist mist-b"></div>
+
+  <main class="game-shell">
+    <header class="topbar glass">
+      <div class="brand">
+        <img src="./public/img/sect-seal.svg" alt="Tông môn ấn" />
+        <div>
+          <p class="eyebrow">MỘT NIỆM CẦU TRƯỜNG SINH</p>
+          <h1>Tu Tiên: Vấn Đạo</h1>
+        </div>
+      </div>
+      <div class="top-actions">
+        <span class="save-state" id="saveState">Đã lưu</span>
+        <button class="ghost-btn" id="resetGame" type="button">Chơi lại</button>
+      </div>
+    </header>
+
+    <section class="hero glass">
+      <div class="hero-copy">
+        <span class="tag">Tiên hiệp • Idle RPG • Bản prototype</span>
+        <h2 id="realmTitle">Luyện Khí tầng 1</h2>
+        <p id="realmQuote">Linh khí nhập thể, tiên lộ mới khai.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="./public/img/cultivator.svg" alt="" />
+      </div>
+    </section>
+
+    <section class="resource-row" aria-label="Tài nguyên">
+      <article class="resource glass">
+        <img src="./public/img/spirit-stone.svg" alt="" />
+        <div><span>Linh thạch</span><strong id="spiritStone">0</strong></div>
+      </article>
+      <article class="resource glass">
+        <img src="./public/img/herb.svg" alt="" />
+        <div><span>Linh thảo</span><strong id="herb">0</strong></div>
+      </article>
+      <article class="resource glass">
+        <img src="./public/img/pill.svg" alt="" />
+        <div><span>Phá cảnh đan</span><strong id="pill">0</strong></div>
+      </article>
+    </section>
+
+    <section class="layout">
+      <aside class="panel glass character-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">ĐẠO HIỆU</span>
+            <h3 id="playerName">Vô Danh</h3>
+          </div>
+          <span class="level-badge" id="realmBadge">LK 1</span>
+        </div>
+
+        <div class="portrait-wrap">
+          <img src="./public/img/cultivator.svg" alt="Nhân vật tu tiên" />
+        </div>
+
+        <div class="meter-block">
+          <div class="meter-label"><span>Khí huyết</span><b id="hpText">100 / 100</b></div>
+          <div class="meter hp"><i id="hpBar"></i></div>
+        </div>
+        <div class="meter-block">
+          <div class="meter-label"><span>Linh khí</span><b id="qiText">50 / 50</b></div>
+          <div class="meter qi"><i id="qiBar"></i></div>
+        </div>
+        <div class="meter-block">
+          <div class="meter-label"><span>Tu vi</span><b id="cultivationText">0 / 100</b></div>
+          <div class="meter cultivation"><i id="cultivationBar"></i></div>
+        </div>
+
+        <div class="stats-grid">
+          <div><span>Công</span><strong id="attackStat">10</strong></div>
+          <div><span>Thủ</span><strong id="defenseStat">4</strong></div>
+          <div><span>Thần thức</span><strong id="spiritStat">8</strong></div>
+          <div><span>Chiến tích</span><strong id="winsStat">0</strong></div>
+        </div>
+      </aside>
+
+      <section class="panel glass action-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">ĐỘNG PHỦ</span>
+            <h3>Tu luyện</h3>
+          </div>
+        </div>
+
+        <div class="action-grid">
+          <button class="action-card" id="meditateBtn" type="button">
+            <span class="action-icon">☯</span>
+            <span><strong>Thổ nạp</strong><small>Hồi linh khí, tăng một ít tu vi.</small></span>
+          </button>
+          <button class="action-card" id="cultivateBtn" type="button">
+            <span class="action-icon">✦</span>
+            <span><strong>Vận công</strong><small>Tiêu linh khí để nhanh chóng tăng tu vi.</small></span>
+          </button>
+          <button class="action-card" id="exploreBtn" type="button">
+            <span class="action-icon">山</span>
+            <span><strong>Hạ sơn lịch luyện</strong><small>Tìm linh thảo, linh thạch hoặc gặp yêu thú.</small></span>
+          </button>
+          <button class="action-card" id="alchemyBtn" type="button">
+            <span class="action-icon">丹</span>
+            <span><strong>Luyện đan</strong><small>5 linh thảo + 8 linh thạch → 1 phá cảnh đan.</small></span>
+          </button>
+        </div>
+
+        <div class="breakthrough-card">
+          <div>
+            <span class="eyebrow">PHÁ CẢNH</span>
+            <h4 id="nextRealm">Luyện Khí tầng 2</h4>
+            <p id="breakthroughHint">Cần đủ tu vi. Dùng phá cảnh đan để tăng xác suất thành công.</p>
+          </div>
+          <button class="primary-btn" id="breakthroughBtn" type="button">Đột phá</button>
+        </div>
+      </section>
+
+      <aside class="panel glass world-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">THẾ GIỚI</span>
+            <h3>Nhật ký tiên lộ</h3>
+          </div>
+        </div>
+        <div class="log" id="gameLog" aria-live="polite"></div>
+      </aside>
+    </section>
+
+    <section class="panel glass combat-panel hidden" id="combatPanel">
+      <div class="combat-scene">
+        <div class="fighter player-fighter">
+          <img src="./public/img/cultivator.svg" alt="Tu sĩ" />
+          <strong id="combatPlayerName">Vô Danh</strong>
+          <div class="mini-meter"><i id="combatPlayerHp"></i></div>
+        </div>
+        <div class="versus">VS</div>
+        <div class="fighter enemy-fighter">
+          <img id="enemyImage" src="./public/img/spirit-wolf.svg" alt="Yêu thú" />
+          <strong id="enemyName">Thanh Phong Lang</strong>
+          <div class="mini-meter enemy"><i id="enemyHp"></i></div>
+        </div>
+      </div>
+      <div class="combat-actions">
+        <button class="primary-btn" id="attackBtn" type="button">Ngự kiếm công kích</button>
+        <button class="ghost-btn" id="fleeBtn" type="button">Thoát chiến</button>
+      </div>
+    </section>
+
+    <footer>
+      <span>Prototype 0.1.0</span>
+      <span>Tiên lộ vô tận — đạo tâm tự định.</span>
+    </footer>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
