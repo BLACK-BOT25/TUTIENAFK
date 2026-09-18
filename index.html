@@ -53,8 +53,14 @@
       </article>
     </section>
 
+    <nav class="mobile-tabs glass" aria-label="Điều hướng game">
+      <button type="button" data-mobile-tab="character">Nhân vật</button>
+      <button type="button" class="active" data-mobile-tab="actions">Tu luyện</button>
+      <button type="button" data-mobile-tab="world">Nhật ký</button>
+    </nav>
+
     <section class="layout">
-      <aside class="panel glass character-panel">
+      <aside class="panel glass character-panel" data-mobile-panel="character">
         <div class="panel-heading">
           <div>
             <span class="eyebrow">ĐẠO HIỆU</span>
@@ -88,7 +94,7 @@
         </div>
       </aside>
 
-      <section class="panel glass action-panel">
+      <section class="panel glass action-panel mobile-active" data-mobile-panel="actions">
         <div class="panel-heading">
           <div>
             <span class="eyebrow">ĐỘNG PHỦ</span>
@@ -125,7 +131,7 @@
         </div>
       </section>
 
-      <aside class="panel glass world-panel">
+      <aside class="panel glass world-panel" data-mobile-panel="world">
         <div class="panel-heading">
           <div>
             <span class="eyebrow">THẾ GIỚI</span>
