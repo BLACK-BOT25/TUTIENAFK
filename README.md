@@ -2,6 +2,14 @@
 
 Prototype game tu tiên dạng web/idle RPG, viết bằng HTML + CSS + JavaScript thuần.
 
+## Chơi trên điện thoại
+
+Mở trực tiếp:
+
+https://black-bot25.github.io/TUTIENAFK/
+
+Không cần cài app hoặc clone repo. Tiến độ được lưu ngay trên trình duyệt bằng `localStorage`.
+
 ## Có gì trong bản 0.1.0
 
 - Tu luyện: thổ nạp, vận công, tích lũy tu vi.
@@ -15,7 +23,7 @@ Prototype game tu tiên dạng web/idle RPG, viết bằng HTML + CSS + JavaScri
 - Giao diện responsive desktop/mobile.
 - Asset SVG gốc nằm trong `public/img/`.
 
-## Chạy game
+## Chạy local
 
 Không cần build.
 
