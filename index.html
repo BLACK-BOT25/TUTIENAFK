@@ -3,66 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#08111d">
+<meta name="theme-color" content="#07111e">
 <title>Tu Tiên AFK</title>
 <link rel="stylesheet" href="./game.css">
 </head>
 <body>
-<div id="app">
-  <div class="hud profile">
-    <img class="avatar" src="./assets/avatar.webp" alt="">
-    <div class="ptext"><b id="name">Diệp Mặc</b><span id="realm">Luyện Khí tầng 1</span><div class="mini"><i id="miniFill"></i><em id="miniText">0 / 100 Tu Vi</em></div></div>
-  </div>
-  <div class="resources">
-    <button class="res" data-open="shop"><span>💎</span><b id="gems">30</b><i>＋</i></button>
-    <button class="res" data-open="shop"><span>🪙</span><b id="gold">120</b><i>＋</i></button>
-    <button class="res" data-open="herbs"><span>🌿</span><b id="herbs">8</b><i>＋</i></button>
-  </div>
-  <div class="quick">
-    <button data-open="mail"><span>✉️</span><small>Thư</small><i class="red-dot" id="mailDot"></i></button>
-    <button data-open="rank"><span>🏆</span><small>BXH</small></button>
-    <button data-open="settings"><span>⚙️</span><small>Cài đặt</small></button>
-  </div>
-  <div class="side left">
-    <button data-open="manuals"><i class="sprite s0"></i><b>Công Pháp</b></button>
-    <button data-open="equipment"><i class="sprite s1"></i><b>Pháp Bảo</b></button>
-    <button data-open="forge"><i class="sprite s2"></i><b>Luyện Khí</b></button>
-    <button data-open="alchemy"><i class="sprite s3"></i><b>Luyện Đan</b></button>
-    <button data-open="treasures"><i class="sprite s4"></i><b>Bảo Vật</b></button>
-  </div>
-  <div class="side right">
-    <button data-open="pills"><i class="sprite s5"></i><b>Đan Dược</b></button>
-    <button data-open="herbs"><i class="sprite s6"></i><b>Dược Liệu</b></button>
-    <button data-open="rift"><i class="sprite s7"></i><b>Bí Cảnh</b></button>
-    <button data-open="sect"><i class="sprite s8"></i><b>Tông Môn</b></button>
-    <button data-open="world"><i class="sprite s9"></i><b>Thế Giới</b></button>
-  </div>
-  <section class="cult-box">
-    <div class="quote">“Đạo tâm bất diệt, vạn pháp giai khả thành.”</div>
-    <div class="bar"><i id="cultFill"></i></div>
-    <b id="cultText">Tu Vi: 0 / 100</b>
+<main id="app" aria-label="Tu Tiên AFK">
+  <img id="bgArt" class="bg-art" alt="">
+  <div class="mist-layer"></div>
+  <img id="heroArt" class="hero-art" alt="Diệp Mặc đang tu luyện">
+
+  <section class="profile-zone">
+    <img id="profilePanelArt" class="zone-art" alt="">
+    <img src="./assets/avatar.webp" class="profile-avatar" alt="Diệp Mặc">
+    <div class="profile-copy">
+      <b id="name">Diệp Mặc</b>
+      <span id="realm">Luyện Khí tầng 1</span>
+      <div class="mini-progress"><i id="miniFill"></i><em id="miniText">0 / 100 Tu Vi</em></div>
+    </div>
   </section>
-  <button id="fast" class="fast">⚡ Tăng Nhanh</button>
-  <div class="main-actions">
-    <button class="act a0" id="cultivate"><b>Tu luyện</b><small>Hấp thu linh khí</small></button>
-    <button class="act a1" id="explore"><b>Thám hiểm</b><small>Khám phá thiên hạ</small></button>
-    <button class="act a2" id="hunt"><b>Trảm yêu</b><small>Rèn luyện bản thân</small></button>
-    <button class="act a3" id="breakthrough"><b>Đột phá</b><small>Vượt qua bình cảnh</small></button>
-  </div>
-  <div class="stats">
-    <div><span>❤️</span><small>Khí Huyết</small><b id="hp">100/100</b></div>
-    <div><span>⚔️</span><small>Công Kích</small><b id="atk">10</b></div>
-    <div><span>🛡️</span><small>Phòng Thủ</small><b id="def">8</b></div>
-    <div><span>👟</span><small>Né Tránh</small><b id="dodge">5%</b></div>
-    <div><span>🍀</span><small>Tỷ Lệ Bạo</small><b id="crit">5%</b></div>
-  </div>
-  <div class="bottom">
-    <div class="log" id="log"></div>
-    <button class="location" id="nextLoc"><b id="loc">Sơn Ngoại Thanh Minh</b><span>›</span></button>
-  </div>
+
+  <section class="resources" aria-label="Tài nguyên">
+    <button class="resource-btn" data-open="shop"><img id="resGemArt" alt=""><b id="gems">30</b></button>
+    <button class="resource-btn" data-open="shop"><img id="resGoldArt" alt=""><b id="gold">120</b></button>
+    <button class="resource-btn" data-open="herbs"><img id="resHerbArt" alt=""><b id="herbs">8</b></button>
+  </section>
+
+  <nav class="quick-menu" aria-label="Menu nhanh">
+    <button data-open="mail"><img id="quickMailArt" alt="Thư"><i class="notify" id="mailDot"></i></button>
+    <button data-open="rank"><img id="quickRankArt" alt="BXH"></button>
+    <button data-open="settings"><img id="quickSettingsArt" alt="Cài đặt"></button>
+  </nav>
+
+  <nav class="side-menu side-left" aria-label="Menu bên trái">
+    <button data-open="manuals"><img id="side0" alt="Công Pháp"><span>Công Pháp</span></button>
+    <button data-open="equipment"><img id="side1" alt="Pháp Bảo"><span>Pháp Bảo</span></button>
+    <button data-open="forge"><img id="side2" alt="Luyện Khí"><span>Luyện Khí</span></button>
+    <button data-open="alchemy"><img id="side3" alt="Luyện Đan"><span>Luyện Đan</span></button>
+    <button data-open="treasures"><img id="side4" alt="Bảo Vật"><span>Bảo Vật</span></button>
+  </nav>
+
+  <nav class="side-menu side-right" aria-label="Menu bên phải">
+    <button data-open="pills"><img id="side5" alt="Đan Dược"><span>Đan Dược</span></button>
+    <button data-open="herbs"><img id="side6" alt="Dược Liệu"><span>Dược Liệu</span></button>
+    <button data-open="rift"><img id="side7" alt="Bí Cảnh"><span>Bí Cảnh</span></button>
+    <button data-open="sect"><img id="side8" alt="Tông Môn"><span>Tông Môn</span></button>
+    <button data-open="world"><img id="side9" alt="Thế Giới"><span>Thế Giới</span></button>
+  </nav>
+
+  <section class="cultivation-zone">
+    <img id="quoteArt" class="quote-art" alt="">
+    <div class="quote-text">“Đạo tâm bất diệt, vạn pháp giai khả thành.”</div>
+    <div class="cult-track"><i id="cultFill"></i></div>
+    <b id="cultText">Tu Vi: 0 / 100</b>
+    <button id="fast" class="fast-btn"><img id="fastArt" alt="Tăng Nhanh"></button>
+  </section>
+
+  <section class="main-actions" aria-label="Hành động chính">
+    <button id="cultivate" aria-label="Tu luyện"><img id="action0" alt="Tu luyện"></button>
+    <button id="explore" aria-label="Thám hiểm"><img id="action1" alt="Thám hiểm"></button>
+    <button id="hunt" aria-label="Trảm yêu"><img id="action2" alt="Trảm yêu"></button>
+    <button id="breakthrough" aria-label="Đột phá"><img id="action3" alt="Đột phá"></button>
+  </section>
+
+  <section class="stats-zone">
+    <img id="statsPanelArt" class="zone-art" alt="">
+    <div class="stat-grid">
+      <div><img id="stat0" alt=""><span>Khí Huyết</span><b id="hp">100/100</b></div>
+      <div><img id="stat1" alt=""><span>Công Kích</span><b id="atk">10</b></div>
+      <div><img id="stat2" alt=""><span>Phòng Thủ</span><b id="def">8</b></div>
+      <div><img id="stat3" alt=""><span>Né Tránh</span><b id="dodge">5%</b></div>
+      <div><img id="stat4" alt=""><span>Tỷ Lệ Bạo</span><b id="crit">5%</b></div>
+    </div>
+  </section>
+
+  <section class="bottom-zone">
+    <div class="log-wrap">
+      <img id="logPanelArt" class="zone-art" alt="">
+      <div id="log" class="log-content"></div>
+    </div>
+    <button class="location-card" id="nextLoc">
+      <img src="./assets/location.webp" alt="Khu vực hiện tại">
+      <span id="loc">Sơn Ngoại Thanh Minh</span><b>›</b>
+    </button>
+  </section>
+
   <div id="modal" class="overlay"><div class="window" id="modalBody"></div></div>
   <div id="combat" class="overlay"><div class="window" id="combatBody"></div></div>
-</div>
+</main>
+<script src="./asset-runtime.js"></script>
 <script src="./game.js"></script>
 </body>
 </html>
